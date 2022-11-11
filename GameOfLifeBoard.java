@@ -13,7 +13,6 @@ public class GameOfLifeBoard {
     private              int leny; 
     private              boolean[][] gameBoard;
 
-
     public GameOfLifeBoard(boolean[][] initalBoard) {
         gameBoard = initalBoard;
         lenX = gameBoard.length;
@@ -25,6 +24,10 @@ public class GameOfLifeBoard {
         lenX = gameBoard.length    - 1;
         leny = gameBoard[0].length - 1;
 
+    }
+
+    public boolean[][] getBoardMatrix() {
+        return gameBoard;
     }
 
     public void nextStep() {
@@ -53,7 +56,7 @@ public class GameOfLifeBoard {
         return output;
     }
 
-    public int sumOfNeighbours(int x, int y) {
+    private int sumOfNeighbours(int x, int y) {
         int sum = 0;
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {
@@ -75,7 +78,7 @@ public class GameOfLifeBoard {
         }
         return output;
     }
-    public static boolean boolArrayIsSquare(boolean[][] inArray) {
+    private static boolean boolArrayIsSquare(boolean[][] inArray) {
         for (boolean[] bs : inArray) {
             if (bs.length != inArray.length) {
                 return false;
